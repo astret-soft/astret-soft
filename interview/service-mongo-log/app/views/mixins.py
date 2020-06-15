@@ -11,7 +11,7 @@ class PagingWithLastViewMixin:
     """ Mixin for paging in mongodb by id_
     """
 
-    default_limit = 100
+    default_limit = 50
     max_limit = 1000
 
     async def parse_paging(self):
