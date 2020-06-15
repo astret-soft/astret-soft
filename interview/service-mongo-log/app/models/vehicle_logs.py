@@ -20,4 +20,5 @@ class VehicleLog(BaseModel):
         _id = data.pop('_id')
         data['id'] = str(_id)
         data['timestamp'] = _id.generation_time.isoformat()
+        data['country'] = data.get('country') or 'USA'
         return data
