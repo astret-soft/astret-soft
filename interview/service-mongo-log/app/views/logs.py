@@ -18,7 +18,6 @@ class RetrieveLogsView(PagingWithLastViewMixin, View):
     async def get(self):
         limit, offset, last = await self.parse_paging()
 
-        result = []
         cursor = (
             VehicleLog(self.request.app).find().skip(offset).limit(limit) if last is None
             else VehicleLog(self.request.app).find({'_id': {'$gt': last}}).skip(offset).limit(limit)
